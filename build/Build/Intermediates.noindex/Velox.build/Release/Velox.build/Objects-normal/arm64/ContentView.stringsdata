@@ -4,34 +4,26 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Tab to Apps",
+        "key": "Tab to %@",
         "location": {
-          "startingColumn": 53,
-          "startingLine": 207
+          "startingColumn": 22,
+          "startingLine": 201
         }
       },
       {
         "comment": "",
-        "key": "Tab to Clipboard",
+        "key": "CLIPBOARD",
         "location": {
-          "startingColumn": 69,
-          "startingLine": 207
+          "startingColumn": 54,
+          "startingLine": 195
         }
       },
       {
         "comment": "",
-        "key": "Clipboard",
+        "key": "APPLICATIONS",
         "location": {
-          "startingColumn": 57,
-          "startingLine": 198
-        }
-      },
-      {
-        "comment": "",
-        "key": "Applications",
-        "location": {
-          "startingColumn": 71,
-          "startingLine": 198
+          "startingColumn": 68,
+          "startingLine": 195
         }
       },
       {
@@ -39,7 +31,7 @@
         "key": "Search history...",
         "location": {
           "startingColumn": 58,
-          "startingLine": 220
+          "startingLine": 214
         }
       },
       {
@@ -47,7 +39,7 @@
         "key": "Search apps...",
         "location": {
           "startingColumn": 80,
-          "startingLine": 220
+          "startingLine": 214
         }
       },
       {
@@ -55,7 +47,7 @@
         "key": "Clipboard is Empty",
         "location": {
           "startingColumn": 56,
-          "startingLine": 256
+          "startingLine": 250
         }
       },
       {
@@ -63,23 +55,23 @@
         "key": "No Matches Found",
         "location": {
           "startingColumn": 79,
-          "startingLine": 256
+          "startingLine": 250
         }
       },
       {
         "comment": "",
-        "key": "Copy something and it will appear here.",
+        "key": "Copy something to sync history.",
         "location": {
           "startingColumn": 56,
-          "startingLine": 260
+          "startingLine": 254
         }
       },
       {
         "comment": "",
-        "key": "Try a different search term.",
+        "key": "Try adjusting your search.",
         "location": {
-          "startingColumn": 100,
-          "startingLine": 260
+          "startingColumn": 92,
+          "startingLine": 254
         }
       },
       {
@@ -87,7 +79,7 @@
         "key": "%@",
         "location": {
           "startingColumn": 30,
-          "startingLine": 367
+          "startingLine": 361
         }
       },
       {
@@ -95,7 +87,7 @@
         "key": "PASTE",
         "location": {
           "startingColumn": 38,
-          "startingLine": 374
+          "startingLine": 368
         }
       }
     ]

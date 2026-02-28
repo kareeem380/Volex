@@ -190,22 +190,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // Header - Pro Style
+            // Header
             HStack {
-                HStack(spacing: 8) {
-                    Image(systemName: viewModel.mode == .clipboard ? "doc.on.clipboard" : "app.grid.3x3")
-                        .font(.system(size: 12, weight: .black))
-                    Text(viewModel.mode == .clipboard ? "Clipboard" : "Applications")
-                        .font(.system(size: 12, weight: .bold, design: .rounded))
-                        .textCase(.uppercase)
-                        .tracking(1.2)
-                }
-                .foregroundColor(.secondary)
+                Label(viewModel.mode == .clipboard ? "CLIPBOARD" : "APPLICATIONS", systemImage: viewModel.mode == .clipboard ? "doc.on.clipboard.fill" : "app.grid.3x3.fill")
+                    .font(.system(size: 11, weight: .black))
+                    .foregroundColor(.secondary)
                 
                 Spacer()
                 
-                Text(viewModel.mode == .clipboard ? "Tab to Apps" : "Tab to Clipboard")
-                    .font(.system(size: 10, weight: .medium, design: .rounded))
+                Text("Tab to \(viewModel.mode == .clipboard ? "Apps" : "Clipboard")")
+                    .font(.system(size: 10, weight: .bold))
                     .foregroundColor(.secondary.opacity(0.5))
             }
             .padding(.horizontal, 30)
@@ -214,12 +208,12 @@ struct ContentView: View {
             // Search Bar - Modern Pill Style
             HStack(spacing: 15) {
                 Image(systemName: "magnifyingglass")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 16, weight: .heavy))
                     .foregroundColor(.accentColor)
                 
                 TextField(viewModel.mode == .clipboard ? "Search history..." : "Search apps...", text: $viewModel.query)
                     .textFieldStyle(.plain)
-                    .font(.system(size: 20, weight: .medium, design: .rounded))
+                    .font(.system(size: 18, weight: .medium)) // Standard SF Pro
                     .focused($isSearchFieldFocused)
                     .onSubmit {
                         viewModel.launchSelected(onComplete: onActionComplete)
@@ -228,15 +222,15 @@ struct ContentView: View {
             .padding(.horizontal, 20)
             .padding(.vertical, 12)
             .background(
-                Capsule() // The ultimate Apple rounding
-                    .fill(Color.primary.opacity(0.06))
+                Capsule()
+                    .fill(Color.primary.opacity(0.05))
             )
             .overlay(
                 Capsule()
                     .stroke(Color.white.opacity(0.1), lineWidth: 0.5)
             )
             .padding(.horizontal, 25)
-            .padding(.vertical, 20)
+            .padding(.bottom, 15)
             
             // Results with Liquid feel
             if viewModel.results.isEmpty {
@@ -244,21 +238,21 @@ struct ContentView: View {
                     Spacer()
                     ZStack {
                         Circle()
-                            .fill(LinearGradient(colors: [.accentColor.opacity(0.2), .clear], startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(colors: [.accentColor.opacity(0.15), .clear], startPoint: .topLeading, endPoint: .bottomTrailing))
                             .frame(width: 120, height: 120)
                         
                         Image(systemName: viewModel.query.isEmpty ? "doc.on.clipboard" : "magnifyingglass")
-                            .font(.system(size: 60, weight: .thin))
-                            .foregroundStyle(LinearGradient(colors: [.accentColor, .accentColor.opacity(0.4)], startPoint: .top, endPoint: .bottom))
+                            .font(.system(size: 50, weight: .thin))
+                            .foregroundStyle(LinearGradient(colors: [.accentColor, .accentColor.opacity(0.5)], startPoint: .top, endPoint: .bottom))
                     }
                     
                     VStack(spacing: 8) {
                         Text(viewModel.query.isEmpty ? "Clipboard is Empty" : "No Matches Found")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.primary.opacity(0.8))
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundColor(.primary.opacity(0.9))
                         
-                        Text(viewModel.query.isEmpty ? "Copy something and it will appear here." : "Try a different search term.")
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                        Text(viewModel.query.isEmpty ? "Copy something to sync history." : "Try adjusting your search.")
+                            .font(.system(size: 13, weight: .medium))
                             .foregroundColor(.secondary)
                     }
                     Spacer()
@@ -270,7 +264,7 @@ struct ContentView: View {
                     List(Array(viewModel.results.enumerated()), id: \.element.hashValue) { index, item in
                         ResultRow(item: item, isSelected: viewModel.selectedIndex == index, mode: viewModel.mode)
                             .id(index)
-                            .listRowInsets(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20)) // Increased spacing
+                            .listRowInsets(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden) // Cleaner look
                             .onTapGesture {
@@ -334,12 +328,12 @@ struct ResultRow: View {
                 Image(nsImage: app.icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
+                    .frame(width: 34, height: 34)
                     .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(app.name)
-                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .font(.system(size: 16, weight: .semibold)) // Standard SF Pro
                         .foregroundColor(isSelected ? .white : .primary)
                     
                     if isSelected {
@@ -351,21 +345,21 @@ struct ResultRow: View {
                     }
                 }
             } else if mode == .clipboard, let clip = item as? ClipboardItem {
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text(clip.text)
-                        .font(.system(size: 14, weight: .medium, design: .monospaced))
-                        .foregroundColor(isSelected ? .white : .primary.opacity(0.9))
-                        .lineLimit(isSelected ? 4 : 1) // Intelligent truncation
+                        .font(.system(size: 14, weight: .regular)) // Official Apple font (SF Pro)
+                        .foregroundColor(isSelected ? .white : .primary.opacity(0.95))
+                        .lineLimit(isSelected ? 5 : 1)
                         .truncationMode(.tail)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fixedSize(horizontal: false, vertical: isSelected)
                     
                     HStack(spacing: 6) {
-                        Image(systemName: "clock.fill")
-                            .font(.system(size: 9))
+                        Image(systemName: "clock")
+                            .font(.system(size: 10))
                         Text("\(RelativeDateTimeFormatter().localizedString(for: clip.timestamp, relativeTo: Date()))")
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.system(size: 10, weight: .medium))
                         
                         Spacer()
                         
@@ -374,14 +368,14 @@ struct ResultRow: View {
                                 Text("PASTE")
                                 Image(systemName: "arrow.right.doc.on.clipboard")
                             }
-                            .font(.system(size: 9, weight: .black, design: .rounded))
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 3)
+                            .font(.system(size: 9, weight: .bold))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
                             .background(Color.white.opacity(0.15))
-                            .cornerRadius(8)
+                            .clipShape(Capsule())
                         }
                     }
-                    .foregroundColor(isSelected ? .white.opacity(0.7) : .secondary.opacity(0.6))
+                    .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary.opacity(0.7))
                 }
             }
             
@@ -392,29 +386,29 @@ struct ResultRow: View {
                     .foregroundColor(.white.opacity(0.7))
             }
         }
-        .padding(.vertical, 8) // Balanced density
-        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
+        .padding(.horizontal, 20)
         .background(
             ZStack {
                 if isSelected {
                     LinearGradient(
-                        colors: [Color.accentColor.opacity(0.85), Color.accentColor],
+                        colors: [Color.accentColor.opacity(0.9), Color.accentColor],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 } else {
-                    Color.primary.opacity(0.05)
+                    Color.primary.opacity(0.04)
                 }
             }
-            .cornerRadius(20) // Apply to the whole container
-            .shadow(color: isSelected ? Color.accentColor.opacity(0.3) : Color.clear, radius: 8, x: 0, y: 4)
         )
+        .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous)) // Ultra-curved squircle
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 32, style: .continuous)
                 .stroke(isSelected ? Color.white.opacity(0.2) : Color.clear, lineWidth: 0.5)
         )
+        .shadow(color: isSelected ? Color.accentColor.opacity(0.35) : Color.clear, radius: 12, x: 0, y: 6)
         .scaleEffect(isSelected ? 1.015 : 1.0)
-        .animation(.spring(response: 0.25, dampingFraction: 0.75), value: isSelected)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
     }
 }
 

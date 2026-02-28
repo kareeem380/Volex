@@ -19,7 +19,7 @@ class CommandBarPanel: NSPanel {
         self.hasShadow = true
         
         // Extra large rounded corners for the "Liquid" feel
-        self.cornerRadius = 24
+        self.cornerRadius = 32
         
         // The background is handled by the SwiftUI VisualEffectView for more control
         self.contentView = NSHostingView(rootView: EmptyView())
