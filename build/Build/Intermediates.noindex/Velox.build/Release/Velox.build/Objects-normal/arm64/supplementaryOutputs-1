@@ -1,0 +1,12 @@
+{
+  "/Users/karim.aitbouaddi/Desktop/Velox/Velox/AppDelegate.swift" : {
+    "abi-baseline-json" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox.abi.json",
+    "const-values" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.swiftconstvalues",
+    "dependencies" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.d",
+    "diagnostics" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.dia",
+    "objc-header" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-Swift.h",
+    "swiftdoc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox.swiftdoc",
+    "swiftmodule" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox.swiftmodule",
+    "swiftsourceinfo" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox.swiftsourceinfo"
+  }
+}

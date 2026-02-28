@@ -1,0 +1,68 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "ce6a98e937852ba90fff67294e464cd16628216687599401621c880b838c6c08"
+    }
+  ],
+  "containerPath" : "/Users/karim.aitbouaddi/Desktop/Velox/Velox.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "macosx",
+      "sdk" : "macosx26.1",
+      "sdkVariant" : "macos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64",
+        "x86_64"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Products",
+      "derivedDataPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build",
+      "indexDataStoreFolderPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "CLANG_COVERAGE_MAPPING" : "YES",
+          "CLANG_PROFILE_DATA_DIRECTORY" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/ProfileData",
+          "COLOR_DIAGNOSTICS" : "YES",
+          "diagnostic_message_length" : "67",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
