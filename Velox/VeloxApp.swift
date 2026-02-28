@@ -1,17 +1,13 @@
-//
-//  VeloxApp.swift
-//  Velox
-//
-//  Created by Karim AIT BOUADDI on 28/02/2026.
-//
-
 import SwiftUI
 
 @main
 struct VeloxApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        // Empty scene as the window is managed by NSPanel in AppDelegate
+        Settings { 
+            EmptyView()
         }
     }
 }
