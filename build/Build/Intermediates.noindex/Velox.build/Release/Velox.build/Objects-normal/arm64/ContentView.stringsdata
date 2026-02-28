@@ -4,14 +4,6 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Tab to %@",
-        "location": {
-          "startingColumn": 22,
-          "startingLine": 201
-        }
-      },
-      {
-        "comment": "",
         "key": "CLIPBOARD",
         "location": {
           "startingColumn": 54,
@@ -28,10 +20,26 @@
       },
       {
         "comment": "",
+        "key": "⌥ + Space to toggle",
+        "location": {
+          "startingColumn": 53,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tab to Clipboard",
+        "location": {
+          "startingColumn": 79,
+          "startingLine": 202
+        }
+      },
+      {
+        "comment": "",
         "key": "Search history...",
         "location": {
           "startingColumn": 58,
-          "startingLine": 214
+          "startingLine": 216
         }
       },
       {
@@ -39,7 +47,7 @@
         "key": "Search apps...",
         "location": {
           "startingColumn": 80,
-          "startingLine": 214
+          "startingLine": 216
         }
       },
       {
@@ -47,7 +55,7 @@
         "key": "Clipboard is Empty",
         "location": {
           "startingColumn": 56,
-          "startingLine": 250
+          "startingLine": 252
         }
       },
       {
@@ -55,7 +63,7 @@
         "key": "No Matches Found",
         "location": {
           "startingColumn": 79,
-          "startingLine": 250
+          "startingLine": 252
         }
       },
       {
@@ -63,7 +71,7 @@
         "key": "Copy something to sync history.",
         "location": {
           "startingColumn": 56,
-          "startingLine": 254
+          "startingLine": 256
         }
       },
       {
@@ -71,7 +79,7 @@
         "key": "Try adjusting your search.",
         "location": {
           "startingColumn": 92,
-          "startingLine": 254
+          "startingLine": 256
         }
       },
       {
@@ -79,7 +87,7 @@
         "key": "%@",
         "location": {
           "startingColumn": 30,
-          "startingLine": 361
+          "startingLine": 363
         }
       },
       {
@@ -87,7 +95,7 @@
         "key": "PASTE",
         "location": {
           "startingColumn": 38,
-          "startingLine": 368
+          "startingLine": 370
         }
       }
     ]

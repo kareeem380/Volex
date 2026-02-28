@@ -35,6 +35,7 @@ extension NSWindow {
         set {
             self.contentView?.wantsLayer = true
             self.contentView?.layer?.cornerRadius = newValue
+            self.contentView?.layer?.cornerCurve = .continuous // This is the magic for Squircles
             self.contentView?.layer?.masksToBounds = true
         }
     }

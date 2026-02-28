@@ -195,15 +195,17 @@ struct ContentView: View {
                 Label(viewModel.mode == .clipboard ? "CLIPBOARD" : "APPLICATIONS", systemImage: viewModel.mode == .clipboard ? "doc.on.clipboard.fill" : "app.grid.3x3.fill")
                     .font(.system(size: 11, weight: .black))
                     .foregroundColor(.secondary)
+                    .opacity(0.8)
                 
                 Spacer()
                 
-                Text("Tab to \(viewModel.mode == .clipboard ? "Apps" : "Clipboard")")
+                Text(viewModel.mode == .clipboard ? "⌥ + Space to toggle" : "Tab to Clipboard")
                     .font(.system(size: 10, weight: .bold))
-                    .foregroundColor(.secondary.opacity(0.5))
+                    .foregroundColor(.secondary.opacity(0.4))
             }
             .padding(.horizontal, 30)
             .padding(.top, 25)
+            .padding(.bottom, 12) // Added more space here
             
             // Search Bar - Modern Pill Style
             HStack(spacing: 15) {
