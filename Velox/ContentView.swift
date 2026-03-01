@@ -190,103 +190,92 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            HStack {
-                Label(viewModel.mode == .clipboard ? "CLIPBOARD" : "APPLICATIONS", systemImage: viewModel.mode == .clipboard ? "doc.on.clipboard.fill" : "app.grid.3x3.fill")
-                    .font(.system(size: 11, weight: .black))
-                    .foregroundColor(.secondary)
-                    .opacity(0.8)
-                
-                Spacer()
-                
-                Text(viewModel.mode == .clipboard ? "⌥ + Space to toggle" : "Tab to Clipboard")
-                    .font(.system(size: 10, weight: .bold))
-                    .foregroundColor(.secondary.opacity(0.4))
-            }
-            .padding(.horizontal, 30)
-            .padding(.top, 25)
-            .padding(.bottom, 12) // Added more space here
-            
-            // Search Bar - Modern Pill Style
+            // Search Bar - Spotlight Style (at the very top)
             HStack(spacing: 15) {
                 Image(systemName: "magnifyingglass")
-                    .font(.system(size: 16, weight: .heavy))
-                    .foregroundColor(.accentColor)
+                    .font(.system(size: 20, weight: .thin))
+                    .foregroundColor(.primary.opacity(0.6))
                 
                 TextField(viewModel.mode == .clipboard ? "Search history..." : "Search apps...", text: $viewModel.query)
                     .textFieldStyle(.plain)
-                    .font(.system(size: 18, weight: .medium)) // Standard SF Pro
+                    .font(.system(size: 24, weight: .light)) // Spotlight size
                     .focused($isSearchFieldFocused)
                     .onSubmit {
                         viewModel.launchSelected(onComplete: onActionComplete)
                     }
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 12)
-            .background(
-                Capsule()
-                    .fill(Color.primary.opacity(0.05))
-            )
-            .overlay(
-                Capsule()
-                    .stroke(Color.white.opacity(0.1), lineWidth: 0.5)
-            )
-            .padding(.horizontal, 25)
-            .padding(.bottom, 15)
-            
-            // Results with Liquid feel
-            if viewModel.results.isEmpty {
-                VStack(spacing: 25) {
-                    Spacer()
-                    ZStack {
-                        Circle()
-                            .fill(LinearGradient(colors: [.accentColor.opacity(0.15), .clear], startPoint: .topLeading, endPoint: .bottomTrailing))
-                            .frame(width: 120, height: 120)
-                        
-                        Image(systemName: viewModel.query.isEmpty ? "doc.on.clipboard" : "magnifyingglass")
-                            .font(.system(size: 50, weight: .thin))
-                            .foregroundStyle(LinearGradient(colors: [.accentColor, .accentColor.opacity(0.5)], startPoint: .top, endPoint: .bottom))
-                    }
-                    
-                    VStack(spacing: 8) {
-                        Text(viewModel.query.isEmpty ? "Clipboard is Empty" : "No Matches Found")
-                            .font(.system(size: 17, weight: .bold))
-                            .foregroundColor(.primary.opacity(0.9))
-                        
-                        Text(viewModel.query.isEmpty ? "Copy something to sync history." : "Try adjusting your search.")
-                            .font(.system(size: 13, weight: .medium))
+                
+                if !viewModel.query.isEmpty {
+                    Button(action: { viewModel.query = "" }) {
+                        Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.secondary)
                     }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 25)
+            .padding(.vertical, 22)
+            
+            Divider()
+                .opacity(0.1)
+            
+            // Suggestion Chips (Quick Actions)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    SuggestionChip(title: "Clipboard", icon: "doc.on.clipboard", isSelected: viewModel.mode == .clipboard) {
+                        viewModel.mode = .clipboard
+                    }
+                    SuggestionChip(title: "Applications", icon: "app.grid.3x3", isSelected: viewModel.mode == .apps) {
+                        viewModel.mode = .apps
+                    }
+                    SuggestionChip(title: "Files", icon: "folder", isSelected: false) { }
+                    SuggestionChip(title: "Settings", icon: "gearshape", isSelected: false) { }
+                }
+                .padding(.horizontal, 25)
+            }
+            .padding(.vertical, 14)
+            .background(Color.primary.opacity(0.02))
+            
+            Divider()
+                .opacity(0.1)
+            
+            // Results with High Density
+            if viewModel.results.isEmpty {
+                VStack(spacing: 20) {
+                    Spacer()
+                    Image(systemName: viewModel.mode == .clipboard ? "doc.on.clipboard" : "app.grid.3x3")
+                        .font(.system(size: 44, weight: .ultraLight))
+                        .foregroundColor(.secondary.opacity(0.3))
+                    
+                    Text(viewModel.query.isEmpty ? (viewModel.mode == .clipboard ? "Clipboard is Empty" : "No Apps Found") : "No Matches Found")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.secondary)
                     Spacer()
                     Spacer()
                 }
-                .transition(.opacity.combined(with: .scale(0.98)))
             } else {
                 ScrollViewReader { proxy in
                     List(Array(viewModel.results.enumerated()), id: \.element.hashValue) { index, item in
                         ResultRow(item: item, isSelected: viewModel.selectedIndex == index, mode: viewModel.mode)
                             .id(index)
-                            .listRowInsets(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                            .listRowInsets(EdgeInsets(top: 1, leading: 12, bottom: 1, trailing: 12))
                             .listRowBackground(Color.clear)
-                            .listRowSeparator(.hidden) // Cleaner look
+                            .listRowSeparator(.hidden)
                             .onTapGesture {
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                withAnimation(.spring(response: 0.2, dampingFraction: 0.8)) {
                                     viewModel.selectedIndex = index
                                 }
                                 viewModel.launchSelected(onComplete: onActionComplete)
                             }
                     }
                     .listStyle(.plain)
-                    .padding(.top, 10)
+                    .padding(.top, 8)
                     .onChange(of: viewModel.selectedIndex) { oldValue, newValue in
-                        withAnimation(.interactiveSpring(response: 0.3, dampingFraction: 0.8, blendDuration: 0.1)) {
-                            proxy.scrollTo(newValue, anchor: .center)
-                        }
+                        proxy.scrollTo(newValue, anchor: .center)
                     }
                 }
             }
         }
-        .background(VisualEffectView(material: .fullScreenUI).ignoresSafeArea())
+        .background(VisualEffectView(material: .sidebar, blendingMode: .behindWindow))
         .onAppear {
             isSearchFieldFocused = true
         }
@@ -316,6 +305,36 @@ struct ContentView: View {
                 return false
             }
         )
+    }
+}
+
+struct SuggestionChip: View {
+    let title: String
+    let icon: String
+    let isSelected: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.system(size: 11))
+                Text(title)
+                    .font(.system(size: 11, weight: .medium))
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(
+                Capsule()
+                    .fill(isSelected ? Color.accentColor : Color.primary.opacity(0.08))
+            )
+            .foregroundColor(isSelected ? .white : .primary.opacity(0.8))
+            .overlay(
+                Capsule()
+                    .stroke(Color.white.opacity(isSelected ? 0.2 : 0.05), lineWidth: 0.5)
+            )
+        }
+        .buttonStyle(.plain)
     }
 }
 
