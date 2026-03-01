@@ -1,0 +1,36 @@
+{
+  "" : {
+    "const-values" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.swiftconstvalues",
+    "dependencies" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.d",
+    "diagnostics" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.dia",
+    "emit-module-dependencies" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary-emit-module.dia",
+    "pch" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/Velox-primary.swiftdeps"
+  },
+  "/Users/karim.aitbouaddi/Desktop/Velox/Velox/AppDelegate.swift" : {
+    "index-unit-output-path" : "/Velox.build/Release/Velox.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/karim.aitbouaddi/Desktop/Velox/Velox/ClipboardManager.swift" : {
+    "index-unit-output-path" : "/Velox.build/Release/Velox.build/Objects-normal/arm64/ClipboardManager.o",
+    "llvm-bc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/ClipboardManager.bc",
+    "object" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/ClipboardManager.o"
+  },
+  "/Users/karim.aitbouaddi/Desktop/Velox/Velox/ContentView.swift" : {
+    "index-unit-output-path" : "/Velox.build/Release/Velox.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/karim.aitbouaddi/Desktop/Velox/Velox/VeloxApp.swift" : {
+    "index-unit-output-path" : "/Velox.build/Release/Velox.build/Objects-normal/arm64/VeloxApp.o",
+    "llvm-bc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/VeloxApp.bc",
+    "object" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/VeloxApp.o"
+  },
+  "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/Velox.build/Release/Velox.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/karim.aitbouaddi/Desktop/Velox/build/Build/Intermediates.noindex/Velox.build/Release/Velox.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}
