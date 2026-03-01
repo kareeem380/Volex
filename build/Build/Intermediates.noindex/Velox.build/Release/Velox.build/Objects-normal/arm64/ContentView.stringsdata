@@ -1,0 +1,64 @@
+{
+  "source": "/Users/karim.aitbouaddi/Desktop/Velox/Velox/ContentView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Search history...",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "Search apps...",
+        "location": {
+          "startingColumn": 80,
+          "startingLine": 199
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clipboard is Empty",
+        "location": {
+          "startingColumn": 84,
+          "startingLine": 249
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Apps Found",
+        "location": {
+          "startingColumn": 107,
+          "startingLine": 249
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Matches Found",
+        "location": {
+          "startingColumn": 126,
+          "startingLine": 249
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 379
+        }
+      },
+      {
+        "comment": "",
+        "key": "PASTE",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 385
+        }
+      }
+    ]
+  },
+  "version": 1
+}
