@@ -325,92 +325,77 @@ struct ResultRow: View {
     let mode: SearchMode
     
     var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 12) {
             if mode == .apps, let app = item as? AppResult {
                 Image(nsImage: app.icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 34, height: 34)
-                    .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 2)
+                    .frame(width: 28, height: 28)
+                    .padding(4)
+                    .background(Color.white.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text(app.name)
-                        .font(.system(size: 16, weight: .semibold)) // Standard SF Pro
+                        .font(.system(size: 15, weight: .medium))
                         .foregroundColor(isSelected ? .white : .primary)
                     
                     if isSelected {
                         Text(app.path)
-                            .font(.system(size: 10, weight: .medium, design: .monospaced))
-                            .foregroundColor(.white.opacity(0.6))
+                            .font(.system(size: 10, weight: .regular))
+                            .foregroundColor(.white.opacity(0.5))
                             .lineLimit(1)
-                            .transition(.opacity)
                     }
                 }
             } else if mode == .clipboard, let clip = item as? ClipboardItem {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text(clip.text)
-                        .font(.system(size: 14, weight: .regular)) // Official Apple font (SF Pro)
-                        .foregroundColor(isSelected ? .white : .primary.opacity(0.95))
+                        .font(.system(size: 14, weight: .regular))
+                        .foregroundColor(isSelected ? .white : .primary.opacity(0.9))
                         .lineLimit(isSelected ? 5 : 1)
                         .truncationMode(.tail)
-                        .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .fixedSize(horizontal: false, vertical: isSelected)
                     
                     HStack(spacing: 6) {
-                        Image(systemName: "clock")
-                            .font(.system(size: 10))
                         Text("\(RelativeDateTimeFormatter().localizedString(for: clip.timestamp, relativeTo: Date()))")
                             .font(.system(size: 10, weight: .medium))
                         
                         Spacer()
                         
                         if isSelected {
-                            HStack(spacing: 4) {
-                                Text("PASTE")
-                                Image(systemName: "arrow.right.doc.on.clipboard")
-                            }
-                            .font(.system(size: 9, weight: .bold))
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.white.opacity(0.15))
-                            .clipShape(Capsule())
+                            Text("PASTE")
+                                .font(.system(size: 9, weight: .bold))
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Color.white.opacity(0.2))
+                                .clipShape(Capsule())
                         }
                     }
-                    .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary.opacity(0.7))
+                    .foregroundColor(isSelected ? .white.opacity(0.6) : .secondary.opacity(0.5))
                 }
             }
             
             if mode == .apps && isSelected {
                 Spacer()
-                Image(systemName: "arrow.up.right.square")
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundColor(.white.opacity(0.7))
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundColor(.white.opacity(0.5))
             }
         }
-        .padding(.vertical, 14)
-        .padding(.horizontal, 20)
+        .padding(.vertical, 10)
+        .padding(.horizontal, 16)
         .background(
             ZStack {
                 if isSelected {
-                    LinearGradient(
-                        colors: [Color.accentColor.opacity(0.9), Color.accentColor],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
+                    Color.accentColor
+                        .opacity(0.95)
                 } else {
-                    Color.primary.opacity(0.04)
+                    Color.clear
                 }
             }
         )
-        .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous)) // Ultra-curved squircle
-        .overlay(
-            RoundedRectangle(cornerRadius: 32, style: .continuous)
-                .stroke(isSelected ? Color.white.opacity(0.2) : Color.clear, lineWidth: 0.5)
-        )
-        .shadow(color: isSelected ? Color.accentColor.opacity(0.35) : Color.clear, radius: 12, x: 0, y: 6)
-        .scaleEffect(isSelected ? 1.015 : 1.0)
-        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous)) // Matching native Spotlight item shape
+        .padding(.horizontal, 4)
     }
 }
 

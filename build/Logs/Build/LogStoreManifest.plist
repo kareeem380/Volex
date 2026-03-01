@@ -6,7 +6,7 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
-		<key>1DE1DD40-4119-4679-9CD1-6327BB53BADF</key>
+		<key>02F7F170-09A1-4733-BAF5-979E49188890</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>1DE1DD40-4119-4679-9CD1-6327BB53BADF.xcactivitylog</string>
+			<string>02F7F170-09A1-4733-BAF5-979E49188890.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -40,13 +40,13 @@
 			<key>signature</key>
 			<string>Building project Velox with scheme Velox and configuration Release</string>
 			<key>timeStartedRecording</key>
-			<real>794000262.48478699</real>
+			<real>794060539.88427103</real>
 			<key>timeStoppedRecording</key>
-			<real>794000267.556633</real>
+			<real>794060544.91713202</real>
 			<key>title</key>
 			<string>Building project Velox with scheme Velox and configuration Release</string>
 			<key>uniqueIdentifier</key>
-			<string>1DE1DD40-4119-4679-9CD1-6327BB53BADF</string>
+			<string>02F7F170-09A1-4733-BAF5-979E49188890</string>
 		</dict>
 		<key>A9661A6D-5FC9-45CB-B002-6D57D4EA421F</key>
 		<dict>
